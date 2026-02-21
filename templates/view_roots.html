@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>غابة الجذور</title>
+    <style>
+        body { font-family: 'Cairo', sans-serif; background: #f0fdf4; padding: 40px; text-align: right; }
+        .tree-card { 
+            background: white; border-radius: 25px; padding: 25px; margin-bottom: 20px;
+            border-right: 12px solid #22c55e; box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .tree-card:hover { transform: scale(1.01); }
+        .fruit-badge { 
+            background: #dcfce7; color: #15803d; padding: 8px 18px; 
+            border-radius: 50px; margin: 5px; display: inline-block; 
+            font-weight: bold; cursor: pointer; border: 2px solid transparent;
+        }
+        .fruit-badge:hover { background: #bbf7d0; border-color: #22c55e; }
+        .back-link { text-decoration: none; color: #15803d; font-weight: bold; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">⬅ عودة للمغارة</a>
+    <h1 style="color: #166534; font-size: 2.5rem;">🌳 غابة الجذور الذكية</h1>
+    <p>هذه هي الجذور التي زرعناها، اضغط على الكلمات لسماعها!</p>
+
+    {% for item in roots %}
+    <div class="tree-card">
+        <strong style="font-size: 1.6rem; color: #16a34a;">جذر: {{ item.root }}</strong>
+        <div style="margin-top: 15px;">
+            {% for word, freq in item.derivatives.items() %}
+                <span class="fruit-badge" onclick="speak('{{ word }}')">🍎 {{ word }} ({{ freq }})</span>
+            {% else %}
+                <span style="color: #94a3b8;">لا توجد مشتقات بعد...</span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+
+    <script>
+        function speak(t) {
+            const m = new SpeechSynthesisUtterance(t);
+            m.lang = 'ar-SA';
+            window.speechSynthesis.speak(m);
+        }
+    </script>
+</body>
+</html>

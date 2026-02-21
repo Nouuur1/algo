@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>كتاب الأوزان</title>
+    <style>
+        body { font-family: 'Cairo', sans-serif; background: #fffbeb; padding: 40px; text-align: right; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .magic-page { 
+            background: white; border-radius: 20px; padding: 30px; 
+            text-align: center; border: 4px solid #f59e0b; 
+            box-shadow: 0 8px 0px #fde68a; transition: 0.3s; cursor: pointer;
+        }
+        .magic-page:hover { transform: rotate(-2deg) scale(1.05); background: #fef3c7; }
+        .name { font-size: 2.2rem; color: #b45309; font-weight: 900; display: block; }
+        .cat { color: #d97706; font-size: 1rem; margin-top: 10px; display: block; }
+    </style>
+</head>
+<body>
+    <a href="/" style="text-decoration:none; color:#b45309; font-weight:bold; font-size:1.2rem;">⬅ عودة</a>
+    <h1 style="color: #92400e; font-size: 2.5rem;">📜 كتاب الأوزان السحرية</h1>
+    <br>
+    <div class="grid">
+        {% for s in schemes %}
+        <div class="magic-page" onclick="speak('{{ s.name }}')">
+            <span class="name">{{ s.name }}</span>
+            <span class="cat">✨ {{ s.cat }}</span>
+            <small style="color: #f59e0b;">اضغط للسماع 🔊</small>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function speak(t) {
+            const m = new SpeechSynthesisUtterance(t);
+            m.lang = 'ar-SA';
+            window.speechSynthesis.speak(m);
+        }
+    </script>
+</body>
+</html>
