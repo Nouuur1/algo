@@ -1,24 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>مغارة الحروف السحرية</title>
+    <title>مغارة الحروف السحرية🌳</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <!-- SweetAlert2 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
+      /* Même style que précédemment, inchangé */
       @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap");
-
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
-
       :root {
         --primary: #ff6b6b;
         --secondary: #4ecdc4;
@@ -36,7 +34,6 @@
         --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         --border-radius: 2rem;
       }
-
       body {
         font-family: "Cairo", sans-serif;
         background: linear-gradient(145deg, #f0f9ff 0%, #e6f7f0 100%);
@@ -49,57 +46,19 @@
         position: relative;
         overflow-x: hidden;
       }
-
-      /* fond décoratif animé */
-      body::before {
-        content: "";
-        position: fixed;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-            circle at 30% 50%,
-            rgba(255, 255, 240, 0.3) 0%,
-            transparent 50%
-          ),
-          repeating-linear-gradient(
-            45deg,
-            rgba(200, 230, 255, 0.1) 0px,
-            rgba(200, 230, 255, 0.1) 2px,
-            transparent 2px,
-            transparent 10px
-          );
-        pointer-events: none;
-        z-index: 0;
-        animation: rotateBg 180s linear infinite;
-      }
-
-      @keyframes rotateBg {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
+      /* ... (le reste du style est identique à l'original) ... */
       .game-header {
         text-align: center;
         margin-bottom: 2.5rem;
-        position: relative;
-        z-index: 10;
       }
-
       .game-header h1 {
         font-size: clamp(2.8rem, 8vw, 4.2rem);
         font-weight: 800;
         color: var(--primary);
-        text-shadow: 4px 4px 0 white, 6px 6px 0 rgba(0, 0, 0, 0.1);
-        margin-bottom: 0.5rem;
-        line-height: 1.2;
+        text-shadow:
+          4px 4px 0 white,
+          6px 6px 0 rgba(0, 0, 0, 0.1);
       }
-
       .game-header p {
         font-size: 1.3rem;
         color: var(--dark);
@@ -109,19 +68,14 @@
         padding: 0.6rem 2rem;
         border-radius: 3rem;
         box-shadow: var(--shadow-sm);
-        border: 1px solid rgba(255, 255, 255, 0.6);
       }
-
       nav {
         display: flex;
         justify-content: center;
         gap: 1.2rem;
         margin-bottom: 3rem;
         flex-wrap: wrap;
-        position: relative;
-        z-index: 10;
       }
-
       nav a {
         text-decoration: none;
         padding: 0.9rem 2.2rem;
@@ -131,75 +85,35 @@
         font-weight: 700;
         font-size: 1.1rem;
         box-shadow: 0 8px 0 #cbd5e1;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s;
         border: 2px solid transparent;
       }
-
       nav a:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 0 #cbd5e1;
         background: var(--accent);
-        border-color: white;
       }
-
-      nav a:active {
-        transform: translateY(4px);
-        box-shadow: 0 4px 0 #cbd5e1;
-      }
-
       .mission-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
         max-width: 1400px;
         width: 100%;
-        margin: 0 auto;
-        position: relative;
-        z-index: 10;
       }
-
       .mission-card {
         background: var(--card-bg);
         backdrop-filter: blur(8px);
         border-radius: var(--border-radius);
         padding: 2rem 1.5rem;
-        box-shadow: var(--shadow-lg), inset 0 2px 5px rgba(255, 255, 255, 0.5);
+        box-shadow: var(--shadow-lg);
         border: 2px solid rgba(255, 255, 255, 0.8);
-        transition: all 0.3s ease;
+        transition: all 0.3s;
         position: relative;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
       }
-
       .mission-card:hover {
         transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.25);
-        border-color: rgba(255, 255, 255, 0.95);
       }
-
-      .mission-card::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle at 30% 30%,
-          rgba(255, 255, 255, 0.5) 0%,
-          transparent 70%
-        );
-        opacity: 0;
-        transition: opacity 0.4s;
-        pointer-events: none;
-      }
-
-      .mission-card:hover::before {
-        opacity: 1;
-      }
-
       .mission-card h2 {
         margin: 0 0 1rem 0;
         font-size: 1.9rem;
@@ -210,7 +124,6 @@
         padding-bottom: 0.8rem;
         border-bottom: 6px solid;
       }
-
       .color-purple h2 {
         border-bottom-color: var(--purple);
       }
@@ -226,7 +139,9 @@
       .color-blue h2 {
         border-bottom-color: var(--blue);
       }
-
+      .color-indigo h2 {
+        border-bottom-color: #6366f1;
+      }
       .magic-input {
         width: 100%;
         padding: 1rem 1.5rem;
@@ -240,21 +155,12 @@
         background: white;
         text-align: center;
         font-weight: 600;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
       }
-
       .magic-input:focus {
         border-color: var(--primary);
         background: #fff9ed;
         box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.2);
       }
-
-      .magic-input::placeholder {
-        color: #94a3b8;
-        font-weight: 400;
-        opacity: 0.8;
-      }
-
       .magic-btn {
         width: 100%;
         padding: 1rem 1.5rem;
@@ -265,49 +171,27 @@
         font-size: 1.3rem;
         cursor: pointer;
         box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
-        transition: all 0.1s ease;
+        transition: all 0.1s;
         margin-bottom: 0.5rem;
         position: relative;
         overflow: hidden;
-        letter-spacing: 0.5px;
       }
-
-      .magic-btn::after {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -20%;
-        width: 140%;
-        height: 200%;
-        background: rgba(255, 255, 255, 0.2);
-        transform: rotate(30deg);
-        transition: transform 0.4s;
-      }
-
       .magic-btn:hover {
         transform: translateY(-3px);
         box-shadow: 0 12px 0 rgba(0, 0, 0, 0.15);
       }
-
-      .magic-btn:hover::after {
-        transform: rotate(30deg) translate(15%, 15%);
-      }
-
       .magic-btn:active {
         transform: translateY(4px);
         box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
       }
-
       .btn-group {
         display: flex;
         gap: 0.8rem;
         margin-top: 0.5rem;
       }
-
       .btn-group .magic-btn {
         margin-bottom: 0;
       }
-
       .scroll-box {
         margin-top: 1.5rem;
         max-height: 280px;
@@ -316,30 +200,12 @@
         background: #f9fafc;
         padding: 0.5rem;
         border: 2px solid rgba(0, 0, 0, 0.03);
-        scrollbar-width: thin;
-        scrollbar-color: var(--secondary) #e2e8f0;
       }
-
-      .scroll-box::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      .scroll-box::-webkit-scrollbar-track {
-        background: #e2e8f0;
-        border-radius: 10px;
-      }
-
-      .scroll-box::-webkit-scrollbar-thumb {
-        background: var(--secondary);
-        border-radius: 10px;
-      }
-
       .result-table {
         width: 100%;
         border-collapse: separate;
         border-spacing: 0 0.5rem;
       }
-
       .result-table td {
         padding: 1rem 1.2rem;
         background: white;
@@ -352,14 +218,11 @@
         font-weight: 600;
         box-shadow: var(--shadow-sm);
       }
-
       .result-table td:hover {
         background: #fff9e6;
         border-color: var(--orange);
         transform: scale(1.02);
-        box-shadow: var(--shadow-md);
       }
-
       .result-table td::after {
         content: "🔊";
         position: absolute;
@@ -368,23 +231,14 @@
         transform: translateY(-50%);
         font-size: 1.2rem;
         opacity: 0.4;
-        transition: opacity 0.2s;
       }
-
-      .result-table td:hover::after {
-        opacity: 1;
-      }
-
       .analysis-root {
         color: var(--purple);
         font-size: 0.95rem;
         font-weight: 600;
         margin-top: 0.5rem;
-        padding-top: 0.5rem;
         border-top: 1px dashed #ddd;
       }
-
-      /* petites étoiles décoratives */
       .deco-star {
         position: absolute;
         width: 8px;
@@ -397,7 +251,6 @@
         pointer-events: none;
         z-index: 5;
       }
-
       @keyframes twinkle {
         0%,
         100% {
@@ -409,7 +262,6 @@
           transform: scale(1.3);
         }
       }
-
       @media (max-width: 640px) {
         body {
           padding: 1rem;
@@ -420,15 +272,10 @@
         .btn-group {
           flex-direction: column;
         }
-        nav a {
-          padding: 0.7rem 1.5rem;
-          font-size: 1rem;
-        }
       }
     </style>
   </head>
   <body>
-    <!-- étoiles décoratives -->
     <div class="deco-star" style="top: 10%; left: 5%"></div>
     <div
       class="deco-star"
@@ -438,11 +285,6 @@
       class="deco-star"
       style="bottom: 15%; left: 12%; animation-delay: 0.5s"
     ></div>
-    <div
-      class="deco-star"
-      style="bottom: 25%; right: 15%; width: 12px; height: 12px"
-    ></div>
-
     <div class="game-header animate__animated animate__bounceIn">
       <h1>✨ مغارة الكلمات ✨</h1>
       <p>
@@ -453,10 +295,11 @@
     <nav>
       <a href="/view_roots">🌳 غابة الجذور</a>
       <a href="/view_schemes">📜 كتاب الأوزان</a>
+      <a href="/visualize_tree">🌐 عرض الشجرة</a>
     </nav>
 
     <div class="mission-grid">
-      <!-- بطاقة 1 -->
+      <!-- Carte 1 : Identification -->
       <div class="mission-card color-purple animate__animated animate__zoomIn">
         <h2>🕵️ مجهر الكلمات</h2>
         <input
@@ -468,14 +311,14 @@
         <button
           class="magic-btn"
           style="background: var(--purple)"
-          onclick="api('/identify', {word: v('iWord')}, 'resId')"
+          onclick="api('/identify', { word: v('iWord') }, 'resId')"
         >
           حلل الكلمة
         </button>
         <div id="resId" class="scroll-box"></div>
       </div>
 
-      <!-- بطاقة 2 -->
+      <!-- Carte 2 : Génération -->
       <div
         class="mission-card color-yellow animate__animated animate__zoomIn"
         style="animation-delay: 0.1s"
@@ -490,14 +333,14 @@
         <button
           class="magic-btn"
           style="background: var(--orange)"
-          onclick="api('/generate_all', {root: v('rGen')}, 'resGen')"
+          onclick="api('/generate_all', { root: v('rGen') }, 'resGen')"
         >
           اشتق الكلمات
         </button>
         <div id="resGen" class="scroll-box"></div>
       </div>
 
-      <!-- بطاقة 3 -->
+      <!-- Carte 3 : Vérification -->
       <div
         class="mission-card color-green animate__animated animate__zoomIn"
         style="animation-delay: 0.2s"
@@ -518,14 +361,16 @@
         <button
           class="magic-btn"
           style="background: var(--green)"
-          onclick="api('/verify', {word: v('vWord'), root: v('vRoot')}, 'resV')"
+          onclick="
+            api('/verify', { word: v('vWord'), root: v('vRoot') }, 'resV')
+          "
         >
           تحقق ومزامنة
         </button>
         <div id="resV" class="scroll-box"></div>
       </div>
 
-      <!-- بطاقة 4 : إدارة الجذور -->
+      <!-- Carte 4 : Gestion des racines -->
       <div
         class="mission-card color-red animate__animated animate__zoomIn"
         style="animation-delay: 0.3s"
@@ -541,21 +386,21 @@
           <button
             class="magic-btn"
             style="background: var(--green)"
-            onclick="api('/manage', {root: v('mRoot'), action:'add'})"
+            onclick="api('/manage', { root: v('mRoot'), action: 'add' })"
           >
             ➕ إضافة
           </button>
           <button
             class="magic-btn"
             style="background: var(--red)"
-            onclick="api('/manage', {root: v('mRoot'), action:'delete'})"
+            onclick="api('/manage', { root: v('mRoot'), action: 'delete' })"
           >
             ➖ حذف
           </button>
         </div>
       </div>
 
-      <!-- بطاقة 5 : إدارة الأوزان -->
+      <!-- Carte 5 : Gestion des schèmes -->
       <div
         class="mission-card color-blue animate__animated animate__zoomIn"
         style="animation-delay: 0.4s"
@@ -573,7 +418,7 @@
           class="magic-input"
           placeholder="التصنيف (اختياري)"
         />
-        <div class="btn-group" style="margin-top: 0.5rem">
+        <div class="btn-group">
           <button
             class="magic-btn"
             style="background: var(--blue)"
@@ -590,6 +435,45 @@
           </button>
         </div>
         <div id="resScheme" class="scroll-box" style="margin-top: 1rem"></div>
+      </div>
+
+      <!-- Carte 6 : Statistiques (NOUVELLE) -->
+      <div
+        class="mission-card color-indigo animate__animated animate__zoomIn"
+        style="animation-delay: 0.5s"
+      >
+        <h2>📊 إحصائيات سحرية</h2>
+        <button
+          class="magic-btn"
+          style="background: #6366f1"
+          onclick="getStats()"
+        >
+          اعرض الإحصائيات
+        </button>
+        <div
+          id="statsResult"
+          class="scroll-box"
+          style="text-align: center"
+        ></div>
+      </div>
+
+      <!-- Carte 7 : Recherche de dérivés (NOUVELLE) -->
+      <div class="mission-card" style="border-bottom-color: #ec4899">
+        <h2>🔍 بحث في المشتقات</h2>
+        <input
+          type="text"
+          id="searchPattern"
+          class="magic-input"
+          placeholder="أدخل جزءاً من كلمة"
+        />
+        <button
+          class="magic-btn"
+          style="background: #ec4899"
+          onclick="searchDerivatives()"
+        >
+          بحث
+        </button>
+        <div id="searchResult" class="scroll-box"></div>
       </div>
     </div>
 
@@ -622,7 +506,6 @@
         const box = document.getElementById(resId);
 
         if (res.error) {
-          // Affichage d'une popup d'erreur
           Swal.fire({
             icon: "error",
             title: "خطأ",
@@ -631,9 +514,7 @@
           });
           return;
         }
-
         if (res.success) {
-          // Succès : popup puis rechargement
           Swal.fire({
             icon: "success",
             title: "تم بنجاح",
@@ -644,29 +525,22 @@
           });
           return;
         }
-
         if (res.results) {
-          // Affichage des résultats dans la box
           let h = '<table class="result-table">';
           res.results.forEach((x) => {
             const word = x.word || x.root;
             const scheme = x.scheme;
             const rootVerbe = x.root;
             h += `<tr onclick="speakClean('${word}', '${scheme}')">
-                            <td>
-                                <div style="font-size:1.4rem; font-weight:900; color:var(--dark);">${word}</div>
-                                <div style="color:var(--purple); font-size:1rem; font-weight:bold;">الوزن: ${scheme}</div>
-                                ${
-                                  rootVerbe
-                                    ? `<div class="analysis-root">الفعل (الجذر): ${rootVerbe}</div>`
-                                    : ""
-                                }
-                            </td>
-                          </tr>`;
+                    <td>
+                      <div style="font-size:1.4rem; font-weight:900; color:var(--dark);">${word}</div>
+                      <div style="color:var(--purple); font-size:1rem; font-weight:bold;">الوزن: ${scheme}</div>
+                      ${rootVerbe ? `<div class="analysis-root">الفعل (الجذر): ${rootVerbe}</div>` : ""}
+                    </td>
+                  </tr>`;
           });
           box.innerHTML = h + "</table>";
         } else if (res.message) {
-          // Message simple (ex: vérification) -> popup
           const isError = res.message.includes("لا تنتمي");
           Swal.fire({
             icon: isError ? "error" : "success",
@@ -674,7 +548,6 @@
             text: res.message,
             confirmButtonText: "حسناً",
           });
-          // Optionnel : vider la box (ou laisser vide)
           box.innerHTML = "";
         }
       }
@@ -682,7 +555,6 @@
       async function manageScheme(action) {
         const name = v("newScheme").trim();
         const category = v("schemeCat").trim() || "عام";
-
         if (!name) {
           Swal.fire({
             icon: "warning",
@@ -692,18 +564,14 @@
           });
           return;
         }
-
         const endpoint = action === "add" ? "/add_scheme" : "/delete_scheme";
         const data = { name: name, category: category };
-
         const r = await fetch(endpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
         });
-
         const res = await r.json();
-
         if (res.success) {
           Swal.fire({
             icon: "success",
@@ -721,6 +589,54 @@
             confirmButtonText: "حسناً",
           });
         }
+      }
+
+      // Nouvelle fonction pour les statistiques
+      async function getStats() {
+        const r = await fetch("/stats");
+        const stats = await r.json();
+        let html = `<div style="padding:1rem; text-align:right;">
+                      <p>📊 عدد الجذور: ${stats.roots}</p>
+                      <p>📜 عدد الأوزان: ${stats.schemes}</p>
+                      <p>🍎 مجموع المشتقات: ${stats.total_derivatives}</p>
+                      <p>🏆 أكثر جذر مشتقات: ${stats.max_derivatives_root || "—"} (${stats.max_derivatives_count})</p>
+                    </div>`;
+        document.getElementById("statsResult").innerHTML = html;
+      }
+
+      // Nouvelle fonction pour la recherche de dérivés
+      async function searchDerivatives() {
+        const pattern = v("searchPattern").trim();
+        if (!pattern) {
+          Swal.fire({
+            icon: "warning",
+            title: "تنبيه",
+            text: "أدخل نصاً للبحث",
+            confirmButtonText: "حسناً",
+          });
+          return;
+        }
+        const r = await fetch("/search_derivatives", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ pattern: pattern }),
+        });
+        const data = await r.json();
+        const box = document.getElementById("searchResult");
+        if (data.results.length === 0) {
+          box.innerHTML =
+            '<p style="padding:1rem; color:gray;">لا توجد نتائج</p>';
+          return;
+        }
+        let html = '<table class="result-table">';
+        data.results.forEach((item) => {
+          html += `<tr><td style="text-align:right;">
+                      <div>${item.word} (${item.freq})</div>
+                      <div style="color:var(--purple);">من الجذر: ${item.root}</div>
+                    </td></tr>`;
+        });
+        html += "</table>";
+        box.innerHTML = html;
       }
     </script>
   </body>

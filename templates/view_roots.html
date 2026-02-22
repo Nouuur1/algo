@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>غابة الجذور - مغارة الكلمات</title>
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -13,12 +14,12 @@
       rel="stylesheet"
     />
     <style>
+      /* Style identique à l'original, inchangé */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
       :root {
         --primary-green: #16a34a;
         --secondary-green: #22c55e;
@@ -32,7 +33,6 @@
         --border-radius: 2rem;
         --font-main: "Cairo", sans-serif;
       }
-
       body {
         font-family: var(--font-main);
         background: linear-gradient(145deg, #f0fdf4 0%, #e6f7e6 100%);
@@ -44,8 +44,6 @@
         position: relative;
         overflow-x: hidden;
       }
-
-      /* fond décoratif */
       body::before {
         content: "";
         position: fixed;
@@ -53,7 +51,8 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: radial-gradient(
+        background:
+          radial-gradient(
             circle at 30% 50%,
             rgba(34, 197, 94, 0.1) 0%,
             transparent 50%
@@ -69,7 +68,6 @@
         z-index: 0;
         animation: rotateBg 180s linear infinite;
       }
-
       @keyframes rotateBg {
         0% {
           transform: rotate(0deg);
@@ -78,7 +76,6 @@
           transform: rotate(360deg);
         }
       }
-
       .back-link {
         align-self: flex-start;
         text-decoration: none;
@@ -88,7 +85,9 @@
         background: white;
         padding: 0.8rem 2rem;
         border-radius: 3rem;
-        box-shadow: var(--shadow-sm), 0 6px 0 #cbd5e1;
+        box-shadow:
+          var(--shadow-sm),
+          0 6px 0 #cbd5e1;
         transition: all 0.2s ease;
         margin-bottom: 2rem;
         border: 2px solid transparent;
@@ -98,34 +97,31 @@
         position: relative;
         z-index: 10;
       }
-
       .back-link:hover {
         transform: translateY(-4px);
         box-shadow: 0 10px 0 #cbd5e1;
         background: var(--light-green);
         border-color: white;
       }
-
       .back-link:active {
         transform: translateY(4px);
         box-shadow: 0 2px 0 #cbd5e1;
       }
-
       .page-header {
         text-align: center;
         margin-bottom: 3rem;
         position: relative;
         z-index: 10;
       }
-
       .page-header h1 {
         font-size: clamp(2.5rem, 6vw, 3.5rem);
         font-weight: 800;
         color: var(--dark-green);
-        text-shadow: 3px 3px 0 white, 5px 5px 0 rgba(0, 0, 0, 0.05);
+        text-shadow:
+          3px 3px 0 white,
+          5px 5px 0 rgba(0, 0, 0, 0.05);
         margin-bottom: 0.5rem;
       }
-
       .page-header p {
         font-size: 1.3rem;
         color: #166534;
@@ -137,7 +133,6 @@
         box-shadow: var(--shadow-sm);
         border: 1px solid rgba(255, 255, 255, 0.6);
       }
-
       .tree-grid {
         max-width: 1200px;
         width: 100%;
@@ -148,25 +143,24 @@
         position: relative;
         z-index: 10;
       }
-
       .tree-card {
         background: var(--card-bg);
         backdrop-filter: blur(4px);
         border-radius: var(--border-radius);
         padding: 2rem;
         border-right: 12px solid var(--secondary-green);
-        box-shadow: var(--shadow-lg), inset 0 2px 5px rgba(255, 255, 255, 0.5);
+        box-shadow:
+          var(--shadow-lg),
+          inset 0 2px 5px rgba(255, 255, 255, 0.5);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
       }
-
       .tree-card:hover {
         transform: translateY(-5px) scale(1.01);
         box-shadow: 0 25px 30px -12px rgba(34, 197, 94, 0.3);
         border-right-width: 16px;
       }
-
       .tree-card::before {
         content: "🌳";
         position: absolute;
@@ -177,7 +171,6 @@
         pointer-events: none;
         transform: rotate(5deg);
       }
-
       .root-title {
         font-size: 1.9rem;
         font-weight: 700;
@@ -187,7 +180,6 @@
         align-items: center;
         gap: 0.5rem;
       }
-
       .root-title span {
         background: var(--light-green);
         padding: 0.2rem 1rem;
@@ -195,13 +187,11 @@
         font-size: 1rem;
         color: var(--dark-green);
       }
-
       .derivatives-container {
         display: flex;
         flex-wrap: wrap;
         gap: 0.8rem;
       }
-
       .fruit-badge {
         background: var(--light-green);
         color: var(--dark-green);
@@ -217,29 +207,23 @@
         align-items: center;
         gap: 0.5rem;
       }
-
       .fruit-badge::before {
         content: "🍎";
         font-size: 1.2rem;
         transition: transform 0.2s;
       }
-
       .fruit-badge:hover {
         background: #bbf7d0;
         border-color: var(--secondary-green);
         transform: scale(1.05);
         box-shadow: var(--shadow-md);
       }
-
       .fruit-badge:active {
         transform: scale(0.95);
       }
-
-      /* animation au clic (ajoutée via JS) */
       .fruit-badge.clicked {
         animation: fruitPop 0.3s ease;
       }
-
       @keyframes fruitPop {
         0% {
           transform: scale(1);
@@ -252,7 +236,6 @@
           transform: scale(1);
         }
       }
-
       .no-derivatives {
         color: #94a3b8;
         font-size: 1.1rem;
@@ -262,8 +245,6 @@
         border-radius: 3rem;
         display: inline-block;
       }
-
-      /* responsive */
       @media (max-width: 640px) {
         body {
           padding: 1rem;
@@ -280,8 +261,6 @@
           padding: 0.6rem 1.2rem;
         }
       }
-
-      /* quelques étoiles décoratives (optionnel) */
       .deco-leaf {
         position: absolute;
         width: 20px;
@@ -295,7 +274,6 @@
     </style>
   </head>
   <body>
-    <!-- éléments décoratifs -->
     <div class="deco-leaf" style="top: 5%; left: 2%"></div>
     <div
       class="deco-leaf"
@@ -342,21 +320,17 @@
     </div>
 
     <script>
-      // === fonction speak inchangée ===
       function speak(text) {
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = "ar-SA";
-        utterance.rate = 0.9; // léger ralentissement pour mieux comprendre
-        window.speechSynthesis.cancel(); // évite les chevauchements
+        utterance.rate = 0.9;
+        window.speechSynthesis.cancel();
         window.speechSynthesis.speak(utterance);
       }
-
-      // === amélioration UI : animation au clic sur les fruits ===
       document.addEventListener("DOMContentLoaded", function () {
         const badges = document.querySelectorAll(".fruit-badge");
         badges.forEach((badge) => {
           badge.addEventListener("click", function (e) {
-            // ajoute une classe d'animation
             this.classList.add("clicked");
             setTimeout(() => {
               this.classList.remove("clicked");
