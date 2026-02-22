@@ -45,6 +45,6 @@ pip install -r requirements.txt
 4. Lancer l'application
 
 
-python app.py
+python3 app.py
 
 
