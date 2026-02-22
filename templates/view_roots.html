@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>غابة الجذور - مغارة الكلمات</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-green: #16a34a;
+        --secondary-green: #22c55e;
+        --light-green: #dcfce7;
+        --dark-green: #15803d;
+        --bg-soft: #f0fdf4;
+        --card-bg: rgba(255, 255, 255, 0.95);
+        --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        --border-radius: 2rem;
+        --font-main: "Cairo", sans-serif;
+      }
+
+      body {
+        font-family: var(--font-main);
+        background: linear-gradient(145deg, #f0fdf4 0%, #e6f7e6 100%);
+        padding: 2rem 1.5rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* fond décoratif */
+      body::before {
+        content: "";
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+            circle at 30% 50%,
+            rgba(34, 197, 94, 0.1) 0%,
+            transparent 50%
+          ),
+          repeating-linear-gradient(
+            45deg,
+            rgba(34, 197, 94, 0.03) 0px,
+            rgba(34, 197, 94, 0.03) 2px,
+            transparent 2px,
+            transparent 10px
+          );
+        pointer-events: none;
+        z-index: 0;
+        animation: rotateBg 180s linear infinite;
+      }
+
+      @keyframes rotateBg {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .back-link {
+        align-self: flex-start;
+        text-decoration: none;
+        color: var(--dark-green);
+        font-weight: 700;
+        font-size: 1.3rem;
+        background: white;
+        padding: 0.8rem 2rem;
+        border-radius: 3rem;
+        box-shadow: var(--shadow-sm), 0 6px 0 #cbd5e1;
+        transition: all 0.2s ease;
+        margin-bottom: 2rem;
+        border: 2px solid transparent;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        z-index: 10;
+      }
+
+      .back-link:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 0 #cbd5e1;
+        background: var(--light-green);
+        border-color: white;
+      }
+
+      .back-link:active {
+        transform: translateY(4px);
+        box-shadow: 0 2px 0 #cbd5e1;
+      }
+
+      .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        z-index: 10;
+      }
+
+      .page-header h1 {
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+        font-weight: 800;
+        color: var(--dark-green);
+        text-shadow: 3px 3px 0 white, 5px 5px 0 rgba(0, 0, 0, 0.05);
+        margin-bottom: 0.5rem;
+      }
+
+      .page-header p {
+        font-size: 1.3rem;
+        color: #166534;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(4px);
+        display: inline-block;
+        padding: 0.5rem 2rem;
+        border-radius: 3rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+      }
+
+      .tree-grid {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+        z-index: 10;
+      }
+
+      .tree-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(4px);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        border-right: 12px solid var(--secondary-green);
+        box-shadow: var(--shadow-lg), inset 0 2px 5px rgba(255, 255, 255, 0.5);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tree-card:hover {
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: 0 25px 30px -12px rgba(34, 197, 94, 0.3);
+        border-right-width: 16px;
+      }
+
+      .tree-card::before {
+        content: "🌳";
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        font-size: 6rem;
+        opacity: 0.05;
+        pointer-events: none;
+        transform: rotate(5deg);
+      }
+
+      .root-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        color: var(--primary-green);
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .root-title span {
+        background: var(--light-green);
+        padding: 0.2rem 1rem;
+        border-radius: 2rem;
+        font-size: 1rem;
+        color: var(--dark-green);
+      }
+
+      .derivatives-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+
+      .fruit-badge {
+        background: var(--light-green);
+        color: var(--dark-green);
+        padding: 0.7rem 1.5rem;
+        border-radius: 3rem;
+        font-weight: 700;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.2s ease;
+        box-shadow: var(--shadow-sm);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .fruit-badge::before {
+        content: "🍎";
+        font-size: 1.2rem;
+        transition: transform 0.2s;
+      }
+
+      .fruit-badge:hover {
+        background: #bbf7d0;
+        border-color: var(--secondary-green);
+        transform: scale(1.05);
+        box-shadow: var(--shadow-md);
+      }
+
+      .fruit-badge:active {
+        transform: scale(0.95);
+      }
+
+      /* animation au clic (ajoutée via JS) */
+      .fruit-badge.clicked {
+        animation: fruitPop 0.3s ease;
+      }
+
+      @keyframes fruitPop {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+          background: #86efac;
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .no-derivatives {
+        color: #94a3b8;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: #f1f5f9;
+        padding: 1rem 2rem;
+        border-radius: 3rem;
+        display: inline-block;
+      }
+
+      /* responsive */
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
+        .tree-card {
+          padding: 1.5rem;
+        }
+        .fruit-badge {
+          font-size: 1rem;
+          padding: 0.5rem 1rem;
+        }
+        .back-link {
+          font-size: 1rem;
+          padding: 0.6rem 1.2rem;
+        }
+      }
+
+      /* quelques étoiles décoratives (optionnel) */
+      .deco-leaf {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: rgba(34, 197, 94, 0.2);
+        border-radius: 80% 0 80% 0;
+        transform: rotate(45deg);
+        pointer-events: none;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- éléments décoratifs -->
+    <div class="deco-leaf" style="top: 5%; left: 2%"></div>
+    <div
+      class="deco-leaf"
+      style="
+        bottom: 10%;
+        right: 3%;
+        width: 30px;
+        height: 30px;
+        background: rgba(34, 197, 94, 0.1);
+      "
+    ></div>
+    <div
+      class="deco-leaf"
+      style="top: 20%; right: 8%; transform: rotate(120deg)"
+    ></div>
+
+    <a href="/" class="back-link animate__animated animate__fadeInRight"
+      >⬅️ عودة إلى المغارة</a
+    >
+
+    <div class="page-header animate__animated animate__zoomIn">
+      <h1>🌳 غابة الجذور الذكية</h1>
+      <p>هذه هي الجذور التي زرعناها، اضغط على الثمار لسماعها!</p>
+    </div>
+
+    <div class="tree-grid">
+      {% for item in roots %}
+      <div class="tree-card animate__animated animate__fadeInUp">
+        <div class="root-title">
+          جذر: {{ item.root }}
+          <span>{{ item.derivatives|length }} مشتقات</span>
+        </div>
+        <div class="derivatives-container">
+          {% for word, freq in item.derivatives.items() %}
+          <span class="fruit-badge" onclick="speak('{{ word }}')"
+            >🍎 {{ word }} ({{ freq }})</span
+          >
+          {% else %}
+          <span class="no-derivatives">🌱 لا توجد مشتقات بعد ...</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <script>
+      // === fonction speak inchangée ===
+      function speak(text) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "ar-SA";
+        utterance.rate = 0.9; // léger ralentissement pour mieux comprendre
+        window.speechSynthesis.cancel(); // évite les chevauchements
+        window.speechSynthesis.speak(utterance);
+      }
+
+      // === amélioration UI : animation au clic sur les fruits ===
+      document.addEventListener("DOMContentLoaded", function () {
+        const badges = document.querySelectorAll(".fruit-badge");
+        badges.forEach((badge) => {
+          badge.addEventListener("click", function (e) {
+            // ajoute une classe d'animation
+            this.classList.add("clicked");
+            setTimeout(() => {
+              this.classList.remove("clicked");
+            }, 300);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
