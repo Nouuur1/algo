@@ -31,11 +31,11 @@ class HashTable:
         self.size = size
         self.table = [[] for _ in range(size)]
 
-    def _hash(self, key):
-        total = 0
-        for ch in key:
-            total += ord(ch)
-        return total % self.size
+    def _hash(self, key: str) -> int:
+        h = 0
+        for i, char in enumerate(key):
+            h = (h * 31 + ord(char)) % self.size
+        return h
 
     def insert(self, key, value):
         idx = self._hash(key)
