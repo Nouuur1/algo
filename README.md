@@ -1,4 +1,4 @@
-# ✨ مغارة الكلمات - Maghara Sarf AI ✨
+# ✨ مغارة الكلمات - Maghara Sarf ✨
 
 Une application web ludique et éducative conçue pour apprendre la morphologie arabe (**As-Sarf**) aux enfants. Ce projet transforme l'étude des racines et des poids (Wazn) en une aventure magique interactive avec retour vocal.
 

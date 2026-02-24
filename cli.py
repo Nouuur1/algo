@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Interactive Command-Line Interface for Maghara Sarf AI
+"""Interactive Command-Line Interface for Maghara Sarf
 Allows users to manage roots, schemes, and generate/validate derivatives
 """
 
@@ -313,7 +313,7 @@ class SarfCLI:
     def show_main_menu(self):
         """Display main menu"""
         self.clear_screen()
-        self.print_header("مغارة الكلمات - Maghara Sarf AI 🌟")
+        self.print_header("مغارة الكلمات - Maghara Sarf 🌟")
         print("  أهلاً بك في تطبيق تعليمي للصرف العربي")
         print("  Interactive Arabic Morphology Learning App\n")
         

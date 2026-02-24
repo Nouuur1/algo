@@ -1,4 +1,4 @@
-# 🌟 Maghara Sarf AI - App Flow Guide
+# 🌟 Maghara Sarf - App Flow Guide
 
 This guide walks you through how the Arabic morphology app works, step-by-step, with code references.
 
@@ -15,7 +15,7 @@ This guide walks you through how the Arabic morphology app works, step-by-step, 
 
 ## 🎯 App Overview
 
-**Maghara Sarf AI** is an interactive web application for learning Arabic morphology (As-Sarf). It teaches users about:
+**Maghara Sarf** is an interactive web application for learning Arabic morphology (As-Sarf). It teaches users about:
 - **Roots (الجذور)**: Triliteral Arabic words (3 letters)
 - **Schemes/Weights (الأوزان)**: Patterns to generate derivatives
 - **Derivatives (المشتقات)**: Words derived from roots using schemes
