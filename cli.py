@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-"""Interactive Command-Line Interface for Maghara Sarf
+Interactive Command-Line Interface for Maghara Sarf
 Allows users to manage roots, schemes, and generate/validate derivatives
 """
 
