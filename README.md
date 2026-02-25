@@ -1,50 +1,127 @@
-# ✨ مغارة الكلمات - Maghara Sarf ✨
+# Maghara Sarf -- Arabic Morphology Engine
 
-Une application web ludique et éducative conçue pour apprendre la morphologie arabe (**As-Sarf**) aux enfants. Ce projet transforme l'étude des racines et des poids (Wazn) en une aventure magique interactive avec retour vocal.
+Educational web application for learning Arabic morphology (As-Sarf).\
+The system manages Arabic triliteral roots, morphological schemes
+(أوزان), and generates valid derivatives.
 
+------------------------------------------------------------------------
 
+## Features
 
-## 🚀 Fonctionnalités
-- **🕵️ مجهر الكلمات (Analyse)** : Identifie la racine et le schème d'un mot donné.
-- **🪄 عصا الاشتقاق (Génération)** : Génère tous les dérivés possibles à partir d'une racine de 3 lettres.
-- **✅ ميزان العدالة (Vérification)** : Vérifie si un mot appartient réellement à une racine selon les poids disponibles.
-- **⚙️ إدارة الجذور (Gestion)** : Permet d'ajouter ou de supprimer des racines dans la base de données (Arbre AVL).
-- **🔊 interactif** : Clique sur n'importe quel résultat pour entendre le mot et son poids prononcés correctement.
+### Root Management
 
-## 🛠️ Installation et Exécution
+-   Store and search Arabic triliteral roots using an AVL tree.
+-   Add or delete roots dynamically.
 
-Suivez ces étapes pour lancer le projet sur votre machine locale :
+### Scheme Management
 
-1. Cloner le projet
-git clone [https://github.com/nour959/Maghara-Sarf-AI.git](https://github.com/nour959/Maghara-Sarf-AI.git)
-cd Maghara-Sarf-AI
+-   Store morphological schemes in a manually implemented hash table.
+-   Fast access for word generation.
 
-2. Créer un environnement virtuel
+### Word Generation
 
+-   Generate derived words from a valid 3-letter root.
+-   Apply morphological patterns algorithmically.
 
-Sur Linux/macOS
+### Word Validation
 
+-   Check if a word belongs to a root according to stored schemes.
 
+### Arabic Text Display (CLI Support)
+
+-   Proper right-to-left rendering in terminal.
+
+------------------------------------------------------------------------
+
+## Installation
+
+### 1. Clone the repository
+
+``` bash
+git clone <your-repository-url>
+cd <project-folder>
+```
+
+### 2. Create a virtual environment
+
+Linux / macOS:
+
+``` bash
 python3 -m venv venv
-
-
 source venv/bin/activate
+```
 
-Sur Windows
+Windows:
 
-
+``` bash
 python -m venv venv
-
-
 venv\Scripts\activate
+```
 
-3. Installer les dépendances
+### 3. Install dependencies
 
+``` bash
 pip install -r requirements.txt
+pip install arabic-reshaper python-bidi
+```
 
-4. Lancer l'application
+#### Why these libraries?
 
+**arabic-reshaper**\
+Arabic letters change shape depending on their position in the word.\
+This library reshapes characters correctly so they display properly
+outside browsers (like in CLI).
 
-python3 app.py
+**python-bidi**\
+Handles bidirectional text rendering.\
+It ensures Arabic (RTL) is displayed correctly when mixed with
+left-to-right text in the terminal.
 
+These are necessary for correct Arabic visualization in the command-line
+interface.
 
+------------------------------------------------------------------------
+
+## Project Structure
+
+. ├── app.py ├── cli.py ├── cli_final.py ├── logic.py ├──
+requirements.txt ├── APP_FLOW_GUIDE.md ├── README.md │ ├── data/ │ ├──
+roots.txt │ ├── schemes.txt │ └── derivatives.json │ ├── templates/ │
+├── favicon.png └── .venv/
+
+------------------------------------------------------------------------
+
+## Main Files
+
+-   **app.py**\
+    Entry point for running the application.
+
+-   **cli.py / cli_final.py**\
+    Command-line interface for interacting with roots and schemes.
+
+-   **logic.py**\
+    Core engine:
+
+    -   AVL tree for root storage
+    -   Custom hash table for schemes
+    -   Morphological generation logic
+
+-   **data/roots.txt**\
+    Stores Arabic triliteral roots.
+
+-   **data/schemes.txt**\
+    Stores morphological patterns (أوزان).
+
+-   **data/derivatives.json**\
+    Stores generated derivatives and related data.
+
+-   **templates/**\
+    HTML templates (if running as a web interface).
+
+------------------------------------------------------------------------
+
+## Run the Application
+
+CLI version: python cli_final.py
+
+Or: python app.py
