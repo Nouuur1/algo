@@ -80,16 +80,7 @@ left-to-right text in the terminal.
 These are necessary for correct Arabic visualization in the command-line
 interface.
 
-------------------------------------------------------------------------
-
-## Project Structure
-
-. ├── app.py ├── cli.py ├── cli_final.py ├── logic.py ├──
-requirements.txt ├── APP_FLOW_GUIDE.md ├── README.md │ ├── data/ │ ├──
-roots.txt │ ├── schemes.txt │ └── derivatives.json │ ├── templates/ │
-├── favicon.png └── .venv/
-
-------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
 ## Main Files
 
