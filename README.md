@@ -38,8 +38,8 @@ The system manages Arabic triliteral roots, morphological schemes
 ### 1. Clone the repository
 
 ``` bash
-git clone <your-repository-url>
-cd <project-folder>
+git clone https://github.com/Nouuur1/algo.git
+cd ALGO
 ```
 
 ### 2. Create a virtual environment
@@ -115,4 +115,4 @@ interface.
 
 CLI version: python cli_final.py
 
-Or: python app.py
+web app: python app.py
